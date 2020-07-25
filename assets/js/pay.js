@@ -1,10 +1,11 @@
 $(document).ready(function() {
 
-    OpenPay.setId('mzdtln0bmtms6o3kck8f');
-    OpenPay.setApiKey('pk_f0660ad5a39f4912872e24a7a660370c');
+    OpenPay.setId('mdrhnprmsmxkgxtegzhk');
+    OpenPay.setApiKey('pk_72476ae5a41148ee8cd10aceb3998916');
     OpenPay.setSandboxMode(true);
     //Se genera el id de dispositivo
     var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
+    console.log("SessionID  " + deviceSessionId);
     
     $('#pay-button').on('click', function(event) {
         event.preventDefault();
@@ -14,6 +15,7 @@ $(document).ready(function() {
 
     var sucess_callbak = function(response) {
       var token_id = response.data.id;
+      alert(token_id);
       $('#token_id').val(token_id);
       $('#payment-form').submit();
     };
