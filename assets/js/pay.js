@@ -15,9 +15,11 @@ $(document).ready(function() {
 
     var sucess_callbak = function(response) {
       var token_id = response.data.id;
-      alert(token_id);
+      alert("Su token es "+token_id);
       $('#token_id').val(token_id);
-      $('#payment-form').submit();
+     // $('#payment-form').submit();
+     $('#payment-form').reset();
+     $("#pay-button").prop( "disabled", false);
     };
 
     var error_callbak = function(response) {
